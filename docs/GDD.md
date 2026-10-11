@@ -4,7 +4,7 @@ Borrador v0.4, 8 oct 2026 (Mason). Incorpora las respuestas de Cristian, la inve
 
 ## Visión (contexto corto)
 
-City builder de estrategia en Londres a través de varias eras. Anno es la inspiración, no el molde. Tono realista, con paralelismos históricos y figuras reales; la tensión viene del folklore de terror londinense. El jugador elige un rol (después del hito 1), el ritmo es moderado, y hay campaña y sandbox. El arte objetivo es grabado victoriano y la música es de Cristian Bergagna (horrorsynth y darkwave). Godot 4, sin IA en runtime, presupuesto casi cero.
+City builder de estrategia en Londres a través de varias eras. Anno es la inspiración, no el molde. Tono realista, con paralelismos históricos y figuras reales; la tensión viene del folklore de terror londinense. El jugador elige un rol (después del hito 1), el ritmo es moderado, y hay campaña y sandbox. El arte objetivo es low poly 3D estilizado, con paleta fría, niebla y un post-proceso de tinta sutil; el grabado completo queda solo en la UI, el Archivo, las fichas y las cartas (D-028). La música es de Cristian Bergagna (horrorsynth y darkwave). Godot 4, sin IA en runtime, presupuesto casi cero.
 
 ## Primer hito: el loop económico mínimo
 
