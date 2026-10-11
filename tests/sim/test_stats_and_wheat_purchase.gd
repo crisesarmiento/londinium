@@ -187,6 +187,20 @@ func test_restore_rejects_nonfinite_or_negative_samples() -> void:
 	assert_eq(accepted.snapshot()["window_seconds"], 60, "zero is a valid flow")
 
 
+func test_restore_keeps_net_construction_samples_made_negative_by_refunds() -> void:
+	var saved: Dictionary = _window_after(75, _params())
+	var window: Array = saved["stats"]["window"].duplicate(true)
+	window[10][&"construction"] = -60.0
+	var stats: Stats = Stats.new(60)
+	stats.restore(window)
+	assert_eq(stats.snapshot()["window_seconds"], 60, "a refund tick is a valid sample")
+	assert_eq(stats.snapshot()["window"][10][&"construction"], -60.0)
+	window[11][&"construction"] = NAN
+	stats.restore(window)
+	assert_push_error("Stats: malformed window sample; starting an empty window")
+	assert_eq(stats.snapshot()["window_seconds"], 0, "construction must still be finite")
+
+
 func test_wheat_purchase_command_stops_buying_but_not_price_fluctuation() -> void:
 	# Plenty of bread keeps the wharf staffed for the whole run.
 	var fed: Params = _params([Modifier.new(&"population.initial_bread", &"set", 100000)])
