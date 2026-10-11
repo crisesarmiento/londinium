@@ -305,8 +305,9 @@ func test_gdd_depopulation_records_key_contract_elements() -> void:
 		"Stability requires no hunger emigration")
 	_assert_gdd_contract(paragraph, "cobertura[^.;]*pan[^.;]*suavizada[^.;]*0\\s*[,\\.]\\s*6[^.;]*(o\\s+m[aá]s|como\\s+m[ií]nimo)",
 		"Stability requires smoothed bread coverage at least 0.6")
-	_assert_gdd_contract(paragraph, "satisfacci[oó]n[^.;]*no[^.;]*por\\s+debajo[^.;]*umbral[^.;]*emigraci[oó]n",
-		"Stability requires satisfaction at least the emigration threshold")
+	_assert_gdd_contract(paragraph, "pasaron\\s+%d\\s*(s\\b|segundos)[^.;]*desde[^.;]*[uú]ltima\\s+salida" % int(
+		_params().get_value(&"defeat.depopulation.stability_window_seconds")),
+		"Stability requires a full window since the last departure")
 	_assert_gdd_contract(paragraph, "mientras[^.;]*estable[^.;]*pico[^.;]*baja[^.;]*poblaci[oó]n\\s+actual",
 		"The peak decays toward current population while stable")
 	_assert_gdd_contract(paragraph, "durante[^.;]*gracia[^.;]*no[^.;]*avisos[^.;]*despoblaci[oó]n",
