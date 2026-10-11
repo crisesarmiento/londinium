@@ -145,3 +145,13 @@ func test_a_staffed_chain_pays_for_the_next_one_within_the_game() -> void:
 	var surplus: float = taxes - float(wages + upkeep)
 	var gap: float = float(2 * _chain_cost(params) - money)
 	assert_lt(gap / surplus, 15.0, "even at the top tax rate the gap closes inside a 15 minute game")
+
+
+func test_demolish_refund_parameters_exist_with_their_first_values() -> void:
+	var result: DataLoadResult = DataLoader.new().load_all()
+	assert_true(result.is_ok(), str(result.errors))
+	if not result.is_ok():
+		return
+	var params: Params = Params.new(result.catalog, result.catalog.roles[&"neutral_administrator"])
+	assert_eq(params.get_value(&"demolish.refund_ratio"), 0.5)
+	assert_eq(float(params.get_value(&"demolish.refund_grace_seconds")), 15.0)

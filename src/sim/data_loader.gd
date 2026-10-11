@@ -27,6 +27,7 @@ const ECONOMY_SCHEMAS: Dictionary = {
 			"decay_fraction_per_minute": "fraction", "accumulate_factor": "number"}},
 		"policy": {"wheat": {"default_accumulate_price": "optional_price", "default_max_price": "optional_price",
 			"default_target_stock": "integer", "default_reserve_minutes": "integer"}},
+	"demolish": {"refund_ratio": "fraction", "refund_grace_seconds": "number"},
 	"defeat": {
 		"bankruptcy": {"threshold": "money", "duration_seconds": "positive_integer"},
 		"hunger": {"threshold": "fraction", "duration_seconds": "positive_integer", "smoothing": "number"},
