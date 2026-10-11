@@ -4,7 +4,7 @@ Borrador v0.4, 8 oct 2026 (Mason). Incorpora las respuestas de Cristian, la inve
 
 ## Visión (contexto corto)
 
-City builder de estrategia en Londres a través de varias eras. Anno es la inspiración, no el molde. Tono realista, con paralelismos históricos y figuras reales; la tensión viene del folklore de terror londinense. El jugador elige un rol (después del hito 1), el ritmo es moderado, y hay campaña y sandbox. El arte objetivo es grabado victoriano y la música es de Cristian Bergagna (horrorsynth y darkwave). Godot 4, sin IA en runtime, presupuesto casi cero.
+City builder de estrategia en Londres a través de varias eras. Anno es la inspiración, no el molde. Tono realista, con paralelismos históricos y figuras reales; la tensión viene del folklore de terror londinense. El jugador elige un rol (después del hito 1), el ritmo es moderado, y hay campaña y sandbox. El arte objetivo es low poly 3D estilizado, con paleta fría, niebla y un post-proceso de tinta sutil; el grabado completo queda solo en la UI, el Archivo, las fichas y las cartas (D-028). La música es de Cristian Bergagna (horrorsynth y darkwave). Godot 4, sin IA en runtime, presupuesto casi cero.
 
 ## Primer hito: el loop económico mínimo
 
@@ -53,6 +53,8 @@ Una sola clase en la fase 1: trabajadores. Cada trabajador es a la vez consumido
 4. **Vivienda o producción:** más gente trae más impuestos, pero también más bocas.
 5. **Té o ahorro:** subir la satisfacción contra guardar plata para expandirse.
 
+**Demoler.** Demoler devuelve el 100 % del costo si el edificio no tiene trabajadores o si pasaron 15 s o menos desde que se construyó (es un deshacer, no una venta); pasado ese margen devuelve el 50 %, redondeado (#16, D-023). El costo es el vigente, con los modificadores de rol, no el pagado. El trabajo en curso se pierde, el stock global se conserva y la casilla queda libre. Los edificios iniciales cuentan con el margen vencido. Qué pasa con los edificios sin empleos, como la vivienda, que hoy devuelven siempre el 100 %, se define en el #58.
+
 ## Derrota
 
 La partida se puede perder. Cada condición tiene un aviso previo, para que la crisis se pueda corregir antes del final:
@@ -63,7 +65,7 @@ La partida se puede perder. Cada condición tiene un aviso previo, para que la c
 | Motín de hambre | Menos del 50 % del pan cubierto | Menos del 50 % del pan cubierto durante 3 minutos seguidos |
 | Despoblación | La población cae por debajo del 50 % de su pico | La población se mantiene 180 s seguidos por debajo del 25 % de su pico, o por debajo de 10 habitantes mientras la ciudad no está estable. Con 0 habitantes cuenta siempre, una vez terminada la gracia |
 
-Una ciudad es estable cuando nadie se está yendo: no hay emigración por hambre, la cobertura de pan suavizada es de 0,6 o más y la satisfacción no está por debajo del umbral de emigración. Mientras la ciudad está estable, su pico de población baja despacio hasta alcanzar la población actual. Durante la gracia no se muestran avisos de despoblación.
+Una ciudad es estable cuando nadie se está yendo: no hay emigración por hambre, la cobertura de pan suavizada es de 0,6 o más y pasaron 60 s desde la última salida por baja satisfacción (#34, D-022). Si la emigración por satisfacción está activa, cualquier salida cuenta, aunque también haya hambre. Mientras la ciudad está estable, su pico de población baja despacio hasta alcanzar la población actual. Durante la gracia no se muestran avisos de despoblación.
 
 Los umbrales y los tiempos son placeholders para balancear.
 
