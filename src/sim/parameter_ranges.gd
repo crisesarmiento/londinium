@@ -34,6 +34,10 @@ const BY_KEY: Dictionary[StringName, Dictionary] = {
 		"min": 0.0, "max": INT64_UPPER_BOUND, "min_inclusive": true, "max_inclusive": false},
 	&"defeat.hunger.smoothing": {
 		"min": 0.0, "max": 1.0, "min_inclusive": false, "max_inclusive": true},
+	&"demolish.refund_ratio": {
+		"min": 0.0, "max": 1.0, "min_inclusive": true, "max_inclusive": true},
+	&"demolish.refund_grace_seconds": {
+		"min": 0.0, "max": INF, "min_inclusive": true, "max_inclusive": true},
 	&"defeat.grace_seconds": {
 		"min": 0.0, "max": INF, "min_inclusive": true, "max_inclusive": true},
 	&"defeat.depopulation.duration_seconds": {
